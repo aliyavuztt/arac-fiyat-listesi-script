@@ -3,7 +3,7 @@
 Türkiye'deki otomobil markalarının resmi web sitelerinden güncel fiyat
 listelerini çeker ve Excel dosyaları olarak dışa aktarır.
 
-## Kurulum1
+## Kurulum
 
 ```bash
 pip install -r requirements.txt
