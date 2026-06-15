@@ -20,6 +20,7 @@ python main.py
 
 - `docs/Renault_2026-06-15_2129.xlsx` — yalnızca Renault modelleri
 - `docs/Opel_2026-06-15_2129.xlsx` — yalnızca Opel modelleri
+- `docs/Dacia_2026-06-15_2129.xlsx` — yalnızca Dacia modelleri
 - `docs/AllBrands_2026-06-15_2129.xlsx` — tüm markaların birleşik listesi
 
 Dosya adındaki tarih-saat, çalıştırma anını gösterir. Her çalıştırmada
