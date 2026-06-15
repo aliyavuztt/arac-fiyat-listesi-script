@@ -3,12 +3,107 @@
 Türkiye'deki otomobil markalarının resmi web sitelerinden güncel fiyat
 listelerini çeker ve Excel dosyaları olarak dışa aktarır.
 
-## Kurulum
+## Gereksinimler (sıfırdan kurulum)
+
+Yeni bir PC'de projeyi çalıştırmak için önce şu programları kur:
+
+### 1. Python 3.10+ (ZORUNLU)
+
+- **https://www.python.org/downloads/** adresinden Python 3.10 veya daha yeni
+  bir sürümü indir.
+- Kurulumda **"Add Python to PATH"** kutusunu MUTLAKA işaretle. Bu çok önemli;
+  işaretlemezsen `python` komutu çalışmaz.
+- Kurulumdan sonra komut satırında (CMD veya PowerShell) doğrula:
+  ```bash
+  python --version
+  ```
+  `Python 3.10.x` (veya üzeri) görmelisin.
+
+### 2. Git (ZORUNLU — kodu GitHub'dan çekmek için)
+
+- **https://git-scm.com/download/win** adresinden indir ve kur.
+- Varsayılan ayarlarla kur; hiçbir seçeneği değiştirmene gerek yok.
+- Doğrula:
+  ```bash
+  git --version
+  ```
+
+### 3. Playwright Tarayıcısı (ZORUNLU — scraper bununla sayfaları açar)
+
+Renault ve Opel siteleri JavaScript ile fiyat tablolarını render ediyor;
+bu yüzden gerçek bir tarayıcı (Chromium) kullanıyoruz. Playwright bunu
+otomatik yönetir. Kurulumu aşağıdaki "Kurulum" bölümünde.
+
+> **Not:** Visual Studio Code kullanıyorsan Python eklentisini kurman
+> önerilir ama zorunlu değil. Komut satırından da çalıştırabilirsin.
+
+---
+
+## Kurulum (GitHub'dan çekip çalıştırma)
+
+Komut satırını aç (CMD, PowerShell veya Git Bash) ve şu adımları sırayla izle:
+
+### Adım 1 — Projeyi GitHub'dan çek
+
+İstediğin klasöre git (örn. Masaüstü):
+```bash
+cd "%USERPROFILE%\Desktop"
+```
+
+Projeyi klonla:
+```bash
+git clone https://github.com/aliyavuztt/arac-fiyat-listesi-script.git
+```
+
+Proje klasörüne gir:
+```bash
+cd arac-fiyat-listesi-script
+```
+
+### Adım 2 — Sanal ortam oluştur (ÖNERİLİR)
+
+Bu adım ZORUNLU değildir ama önerilir. Sistem genelindeki Python paketlerini
+kirletmemek için projeye özel bir ortam oluşturur:
+
+```bash
+python -m venv .venv
+```
+
+Sanal ortamı aktif et:
+- **CMD:** `.venv\Scripts\activate.bat`
+- **PowerShell:** `.venv\Scripts\Activate.ps1`
+- **Git Bash:** `source .venv/Scripts/activate`
+
+Aktif olunca komut satırının başında `(.venv)` yazar. Bundan sonraki tüm
+`pip` komutları yalnızca bu projeye kurulur.
+
+> **PowerShell "execution policy" hatası alırsan:** PowerShell'i yönetici
+> olarak açıp `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` çalıştır.
+
+### Adım 3 — Python bağımlılıklarını kur
 
 ```bash
 pip install -r requirements.txt
+```
+
+Bu komut `playwright`, `openpyxl`, `beautifulsoup4`, `lxml` paketlerini kurar.
+
+### Adım 4 — Playwright tarayıcısını kur (Chromium)
+
+```bash
 python -m playwright install chromium
 ```
+
+Bu komut Chromium tarayıcısını indirir (~150 MB). Playwright bunu başlıksız
+(headless) modda kullanır. İlk kurulumda biraz sürer; sabırla bekle.
+
+### Adım 5 — Doğrula (her şey hazır mı?)
+
+```bash
+python -c "import playwright, openpyxl, bs4, lxml; print('OK')"
+```
+
+`OK` yazıyorsa hazır.
 
 ## Çalıştırma
 
