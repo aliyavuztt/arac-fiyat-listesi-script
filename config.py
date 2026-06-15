@@ -18,4 +18,5 @@ USE_TIMESTAMP_IN_FILENAME = True
 BRAND_SCRAPERS = [
     "Scrapers.renault_scraper.RenaultScraper",
     "Scrapers.opel_scraper.OpelScraper",
+    "Scrapers.dacia_scraper.DaciaScraper",
 ]
