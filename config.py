@@ -19,4 +19,5 @@ BRAND_SCRAPERS = [
     "Scrapers.renault_scraper.RenaultScraper",
     "Scrapers.opel_scraper.OpelScraper",
     "Scrapers.dacia_scraper.DaciaScraper",
+    "Scrapers.toyota_scraper.ToyotaScraper",
 ]
